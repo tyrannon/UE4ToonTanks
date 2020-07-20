@@ -22,6 +22,21 @@ void APawnTank::BeginPlay()
     PlayerControllerRef = Cast<APlayerController>(GetController());
 }
 
+void APawnTank::HandleDestruction()
+{
+    Super::HandleDestruction();
+    // Hide Player. TODO - Create a new function to do this.
+    bIsPlayerAlive = false;
+
+    SetActorHiddenInGame(true);
+    SetActorTickEnabled(false);
+}
+
+bool APawnTank::GetIsPlayerAlive()
+{
+    return bIsPlayerAlive;
+}
+
 // Called every frame
 void APawnTank::Tick(float DeltaTime)
 {
@@ -32,6 +47,7 @@ void APawnTank::Tick(float DeltaTime)
 
     if (PlayerControllerRef)
     {
+        FHitResult TraceHitResult;
         PlayerControllerRef->GetHitResultUnderCursor(ECC_Visibility, true, TraceHitResult);
         FVector HitLocation = TraceHitResult.ImpactPoint;
 
@@ -70,10 +86,4 @@ void APawnTank::Move()
 void APawnTank::Rotate()
 {
     AddActorLocalRotation(RotationDirection, true);
-}
-
-void APawnTank::HandleDestruction()
-{
-    Super::HandleDestruction();
-    // Hide Player. TODO - Create a new function to do this.
 }

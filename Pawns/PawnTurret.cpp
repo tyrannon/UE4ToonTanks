@@ -16,6 +16,13 @@ void APawnTurret::BeginPlay()
     PlayerPawn = Cast<APawnTank>(UGameplayStatics::GetPlayerPawn(this,0));
 }
 
+void APawnTurret::HandleDestruction()
+{
+    // Call base pawn class HandleDestruction to play effects
+    Super::HandleDestruction();
+    Destroy();
+}
+
 // Called every frame
 void APawnTurret::Tick(float DeltaTime)
 {
@@ -27,13 +34,12 @@ void APawnTurret::Tick(float DeltaTime)
     }
 
     RotateTurret(PlayerPawn->GetActorLocation());
-    
 }
 
 void APawnTurret::CheckFireCondition()
 {
     // If Player == null || is Dead THEN BAIL!!
-    if (!PlayerPawn)
+    if (!PlayerPawn || !PlayerPawn->GetIsPlayerAlive())
     {
         return;
     }
@@ -53,12 +59,5 @@ float APawnTurret::ReturnDistanceToPlayer()
         return 0.0f;
     }
 
-    float Distance = (PlayerPawn->GetActorLocation() - GetActorLocation()).Size();
-    return Distance;
-}
-
-void APawnTurret::HandleDestruction()
-{
-    Super::HandleDestruction();
-    Destroy();
+    return FVector::Dist(PlayerPawn->GetActorLocation(), GetActorLocation());
 }
