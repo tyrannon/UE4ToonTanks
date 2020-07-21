@@ -1,6 +1,6 @@
 # UE4ToonTanks
 
-[![Alt text]()](https://www.youtube.com/watch?v=BaXHpFZVrto)
+[Play Video](https://www.youtube.com/watch?v=BaXHpFZVrto)
 
 Toon Tanks is a run and gun videogame featuring multidirectional movement and explosions.
 Toon Tanks is built on The Unreal Engine 4.22
