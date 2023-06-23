@@ -1,5 +1,7 @@
 # Toon Tanks
 
+[Play Video](https://www.youtube.com/watch?v=BaXHpFZVrto)
+
 Toon Tanks is a run-and-gun tank game built on Unreal Engine 4.22. Players control a tank and must battle their way through an army of turrets. The game features multidirectional movement and explosions, and is sure to provide hours of fun.
 
 ## Features
@@ -9,7 +11,6 @@ Toon Tanks is a run-and-gun tank game built on Unreal Engine 4.22. Players contr
 * A variety of turrets to battle
 * A challenging and rewarding gameplay experience
 
-[Play Video](https://www.youtube.com/watch?v=BaXHpFZVrto)
 
 ## Getting Started
 
@@ -43,5 +44,3 @@ This README is better than the original because it:
 * Is more concise and easy to read.
 * Uses clear and descriptive language.
 * Includes a link to the GitHub repository.
-
-I hope this helps!
